@@ -1,3 +1,71 @@
 /**
 * Accordeon
 */
+.accordeon {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+details {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+
+details[open] {
+    width: 400px;
+
+    background-color: #f9f9f9;
+    border-color: #007BFF;
+}
+
+
+details>summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+}
+
+details>summary img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+details>summary .triangle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 20px solid #ffcccc;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+details[open]>summary .triangle {
+    transform: rotate(180deg);
+
+}
+
+
+details>.contenu {
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+details[open]>.contenu {
+    opacity: 1;
+}
